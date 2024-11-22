@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ArtAppraisals() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ export default function ArtAppraisals() {
     medium: "",
     itemsList: "",
   });
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -23,10 +25,51 @@ export default function ArtAppraisals() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
+    const formDataToSend = new FormData();
+
+    // Append form fields
+    Object.entries(formData).forEach(([key, value]) => {
+      formDataToSend.append(key, value);
+    });
+
+    // Append files
+    selectedFiles.forEach((file) => {
+      formDataToSend.append("files", file);
+    });
+
+    try {
+      const response = await fetch("/api/art-appraisals", {
+        method: "POST",
+        body: formDataToSend,
+      });
+
+      if (response.ok) {
+        // Handle success
+        console.log("Form submitted successfully");
+      } else {
+        // Handle error
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    // Validate file size and count
+    const validFiles = files.filter((file) => file.size <= 10 * 1024 * 1024); // 10MB limit
+    if (validFiles.length + selectedFiles.length > 20) {
+      alert("Maximum 20 files allowed");
+      return;
+    }
+    setSelectedFiles((prev) => [...prev, ...validFiles]);
+  };
+
+  const handleFileRemove = (index: number) => {
+    setSelectedFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -143,12 +186,41 @@ export default function ArtAppraisals() {
                 </svg>
               </div>
               <p className="text-gray-600">Drag and drop images here or</p>
-              <button
-                type="button"
-                className="mt-2 text-blue-600 hover:text-blue-800"
+              <input
+                type="file"
+                id="file-input"
+                className="hidden"
+                multiple
+                accept="image/*"
+                onChange={handleFileSelect}
+              />
+              <label
+                htmlFor="file-input"
+                className="mt-2 text-blue-600 hover:text-blue-800 cursor-pointer"
               >
                 Select some files
-              </button>
+              </label>
+
+              {/* Preview selected files */}
+              <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+                {selectedFiles.map((file, index) => (
+                  <div key={index} className="relative">
+                    <Image
+                      src={URL.createObjectURL(file)}
+                      alt={`Preview ${index}`}
+                      width={128}
+                      height={128}
+                      className="w-full h-32 object-cover rounded"
+                    />
+                    <button
+                      onClick={() => handleFileRemove(index)}
+                      className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-1"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <button
