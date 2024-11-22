@@ -39,6 +39,30 @@ const exhibitions = [
     artist: "Dice51",
     imageSrc: "/images/IMG_4355.jpeg",
   },
+  {
+    id: 7,
+    title: "Inward Perception of Outward Illusions",
+    artist: "Micah Ofstedahl",
+    imageSrc: "/images/IMG_6067.JPG",
+  },
+  {
+    id: 8,
+    title: "One Iota",
+    artist: "Micah Ofstedahl",
+    imageSrc: "/images/IMG_6068.JPG",
+  },
+  {
+    id: 9,
+    title: "Doomsday",
+    artist: "Micahel Reeder",
+    imageSrc: "/images/IMG_6146.WEBP",
+  },
+  {
+    id: 10,
+    title: "Cloud Diver",
+    artist: "Micahel Reeder",
+    imageSrc: "/images/IMG_6150.WEBP",
+  },
 ];
 
 export default function GalleryExhibitions() {
