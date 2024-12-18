@@ -154,24 +154,24 @@ export default function Home() {
 const dummyArtworks = [
   {
     id: 1,
-    title: "Featured Artwork 1",
-    artist: "Artist Name 1", // Replace with actual artist name
-    price: 2500, // Replace with actual price
+    title: "The Light Enforcer",
+    artist: "Leans", // Replace with actual artist name
+    price: 500, // Replace with actual price
     category: "Digital", // Replace with actual category
     image: "/images/IMG_3656.jpeg",
   },
   {
     id: 2,
-    title: "Featured Artwork 2",
-    artist: "Artist Name 2", // Replace with actual artist name
-    price: 1800, // Replace with actual price
+    title: "Unseen Limousine",
+    artist: "Michael Reeder", // Replace with actual artist name
+    price: 1200, // Replace with actual price
     category: "Paintings", // Replace with actual category
     image: "/images/IMG_3942.jpeg",
   },
   {
     id: 3,
-    title: "Featured Artwork 3",
-    artist: "Artist Name 3", // Replace with actual artist name
+    title: "Earth Bender",
+    artist: "Mars-1, Damon Soule, Oliver Vernon", // Replace with actual artist name
     price: 3200, // Replace with actual price
     category: "Photography", // Replace with actual category
     image: "/images/IMG_2240.jpeg",
