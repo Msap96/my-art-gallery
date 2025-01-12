@@ -28,9 +28,20 @@ export default function Home() {
   return (
     <main className="container mx-auto px-4">
       <nav className="sticky top-0 z-50 flex justify-between items-center px-8 py-6 bg-black bg-opacity-20 backdrop-blur-sm">
-        <h1 className="text-white text-2xl font-bold">
+        <div className="flex items-center space-x-4">
+          <Image
+            src="/images/DalleGalleryImage.webp"
+            alt="Gallery Logo"
+            width={150}
+            height={150}
+            //className="rounded-full"
+          />
+        </div>
+
+        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-white text-4xl font-serif italic tracking-wide">
           The Art of Sapienza Gallery
         </h1>
+
         <div className="flex items-center space-x-6">
           <Search className="w-6 h-6 text-white hover:text-fuchsia-300 cursor-pointer transition-colors" />
           <User className="w-6 h-6 text-white hover:text-fuchsia-300 cursor-pointer transition-colors" />
