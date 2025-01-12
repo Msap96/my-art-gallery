@@ -58,9 +58,10 @@ export default function Home() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {artworks.map((artwork) => (
-              <div
+              <Link
                 key={artwork.id}
-                className="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer transform transition-transform duration-300 hover:scale-[1.02]"
+                href={`/gallery-exhibitions/${artwork.id}`}
+                className="group relative aspect-[3/4] rounded-xl overflow-hidden transform transition-transform duration-300 hover:scale-[1.02]"
               >
                 <Image
                   src={artwork.image}
@@ -76,7 +77,7 @@ export default function Home() {
                     <p className="text-lg font-semibold">${artwork.price}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
