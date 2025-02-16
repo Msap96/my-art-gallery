@@ -20,11 +20,12 @@ export default function GalleryExhibitions() {
     "Mixed Media",
   ];
 
-  // Filter exhibitions based on search query
+  // Filter exhibitions based on search query and category
   const filteredExhibitions = exhibitions.filter(
     (artwork) =>
-      artwork.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      artwork.artist.toLowerCase().includes(searchQuery.toLowerCase())
+      (selectedCategory === "All" || artwork.category === selectedCategory) &&
+      (artwork.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        artwork.artist.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
   return (
@@ -89,8 +90,9 @@ export default function GalleryExhibitions() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredExhibitions.map((artwork) => (
           <Link
-            href={`/gallery-exhibitions/${artwork.id}`}
+            href={artwork.details.link || `/gallery-exhibitions/${artwork.id}`}
             key={artwork.id}
+            target={artwork.details.link ? "_blank" : "_self"}
             className="group border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
           >
             <div className="relative w-full h-64">
@@ -104,13 +106,18 @@ export default function GalleryExhibitions() {
               />
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300 flex items-center justify-center">
                 <span className="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  View Details
+                  {artwork.details.link ? "View on OpenSea" : "View Details"}
                 </span>
               </div>
             </div>
             <div className="p-4">
               <h2 className="text-xl font-semibold">{artwork.title}</h2>
               <p className="text-gray-600">{artwork.artist}</p>
+              {artwork.details.platform && (
+                <span className="inline-block mt-2 px-3 py-1 bg-blue-500 text-white text-sm rounded-full">
+                  NFT Collection
+                </span>
+              )}
             </div>
           </Link>
         ))}

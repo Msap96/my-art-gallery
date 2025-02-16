@@ -5,6 +5,7 @@ export const exhibitions = [
       artist: "Leans",
       imageSrc: "/images/IMG_3656.jpeg",
       price: "$150.00",
+      category: "Paintings",
       details: {
         type: "Hand embellished print",
         size: "16 x 20 inches",
@@ -21,6 +22,7 @@ export const exhibitions = [
       artist: "Michael Reeder",
       imageSrc: "/images/IMG_3942.jpeg",
       price: "$200.00",
+      category: "Paintings",
       details: {
         type: "Giclee print",
         size: "18 x 24 inches",
@@ -37,6 +39,7 @@ export const exhibitions = [
       artist: "Damon Soule, Oliver Vernon and Mars-1",
       imageSrc: "/images/IMG_2240.jpeg",
       price: "$180.00",
+      category: "Paintings",
       details: {
         type: "Hand embellished print",
         size: "18 x 24 inches",
@@ -53,6 +56,7 @@ export const exhibitions = [
       artist: "PoorTeffy",
       imageSrc: "/images/IMG_2537.jpeg",
       price: "$250.00",
+      category: "Paintings",
       details: {
         type: "Giclee print",
         size: "20 x 30 inches",
@@ -69,6 +73,7 @@ export const exhibitions = [
       artist: "Bond Truluv",
       imageSrc: "/images/IMG_2581.jpeg",
       price: "$300.00",
+      category: "Paintings",
       details: {
         type: "Hand embellished print",
         size: "24 x 36 inches",
@@ -85,6 +90,7 @@ export const exhibitions = [
       artist: "Dice51",
       imageSrc: "/images/IMG_4355.jpeg",
       price: "$220.00",
+      category: "Paintings",
       details: {
         type: "Giclee print",
         size: "18 x 24 inches",
@@ -101,6 +107,7 @@ export const exhibitions = [
       artist: "Micah Ofstedahl",
       imageSrc: "/images/IMG_6067.JPG",
       price: "$280.00",
+      category: "Paintings",
       details: {
         type: "Hand embellished print",
         size: "20 x 30 inches",
@@ -117,6 +124,7 @@ export const exhibitions = [
       artist: "Micah Ofstedahl",
       imageSrc: "/images/IMG_6068.JPG",
       price: "$260.00",
+      category: "Paintings",
       details: {
         type: "Giclee print",
         size: "18 x 24 inches",
@@ -133,6 +141,7 @@ export const exhibitions = [
       artist: "Micahel Reeder",
       imageSrc: "/images/IMG_6146.WEBP",
       price: "$350.00",
+      category: "Paintings",
       details: {
         type: "Hand embellished print",
         size: "24 x 36 inches",
@@ -149,6 +158,7 @@ export const exhibitions = [
       artist: "Micahel Reeder",
       imageSrc: "/images/IMG_6150.WEBP",
       price: "$290.00",
+      category: "Paintings",
       details: {
         type: "Giclee print",
         size: "18 x 24 inches",
@@ -158,6 +168,23 @@ export const exhibitions = [
       },
       description:
         "An exploration of urban landscapes through a surreal lens, this piece invites viewers to reflect on the intersection of reality and imagination.",
+    },
+    {
+      id: 11,
+      title: "Digital Collection",
+      artist: "ArtofSapienza",
+      imageSrc: "/images/DalleGalleryImage.webp",
+      price: "View on OpenSea",
+      category: "Digital",
+      details: {
+        type: "NFT Collection",
+        medium: "Digital Art",
+        features: "Blockchain-verified digital artwork",
+        platform: "OpenSea",
+        link: "https://opensea.io/ArtofSapienza"
+      },
+      description:
+        "Explore a unique collection of digital artworks available as NFTs. Each piece represents a fusion of traditional artistic principles with blockchain technology, creating truly unique digital collectibles.",
     },
   ];
   
