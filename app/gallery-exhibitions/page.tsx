@@ -4,69 +4,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Search, ChevronDown } from "lucide-react";
-
-const exhibitions = [
-  {
-    id: 1,
-    title: "The Light Enforcer",
-    artist: "Leans",
-    imageSrc: "/images/IMG_3656.jpeg",
-  },
-  {
-    id: 2,
-    title: "Unseen Limousine",
-    artist: "Michael Reeder",
-    imageSrc: "/images/IMG_3942.jpeg",
-  },
-  {
-    id: 3,
-    title: "Earth Bender",
-    artist: "Damon Soule, Oliver Vernon and Mars-1",
-    imageSrc: "/images/IMG_2240.jpeg",
-  },
-  {
-    id: 4,
-    title: "Space Jame",
-    artist: "PoorTeffy",
-    imageSrc: "/images/IMG_2537.jpeg",
-  },
-  {
-    id: 5,
-    title: "Access Granted_Vlll",
-    artist: "Bond Truluv",
-    imageSrc: "/images/IMG_2581.jpeg",
-  },
-  {
-    id: 6,
-    title: "God's of the Multiverse",
-    artist: "Dice51",
-    imageSrc: "/images/IMG_4355.jpeg",
-  },
-  {
-    id: 7,
-    title: "Inward Perception of Outward Illusions",
-    artist: "Micah Ofstedahl",
-    imageSrc: "/images/IMG_6067.JPG",
-  },
-  {
-    id: 8,
-    title: "One Iota",
-    artist: "Micah Ofstedahl",
-    imageSrc: "/images/IMG_6068.JPG",
-  },
-  {
-    id: 9,
-    title: "Doomsday",
-    artist: "Micahel Reeder",
-    imageSrc: "/images/IMG_6146.WEBP",
-  },
-  {
-    id: 10,
-    title: "Cloud Diver",
-    artist: "Micahel Reeder",
-    imageSrc: "/images/IMG_6150.WEBP",
-  },
-];
+import CartIcon from "@/components/CartIcon";
+import { exhibitions } from "@/app/data/exhibitions";
 
 export default function GalleryExhibitions() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -92,12 +31,15 @@ export default function GalleryExhibitions() {
     <main className="container mx-auto px-4 py-8">
       <div className="mb-6 flex justify-between items-center">
         <h1 className="text-3xl font-bold">Gallery Exhibitions</h1>
-        <Link
-          href="/"
-          className="text-blue-600 hover:text-blue-800 transition-colors"
-        >
-          ← Back to Home
-        </Link>
+        <div className="flex items-center space-x-4">
+          <CartIcon />
+          <Link
+            href="/"
+            className="text-blue-600 hover:text-blue-800 transition-colors"
+          >
+            ← Back to Home
+          </Link>
+        </div>
       </div>
 
       {/* Search and filter section */}

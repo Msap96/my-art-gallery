@@ -4,6 +4,7 @@ import { Menu, Search, User } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import CartIcon from "@/components/CartIcon";
 
 interface Artwork {
   id: number;
@@ -45,6 +46,7 @@ export default function Home() {
         <div className="flex items-center space-x-6">
           <Search className="w-6 h-6 text-white hover:text-fuchsia-300 cursor-pointer transition-colors" />
           <User className="w-6 h-6 text-white hover:text-fuchsia-300 cursor-pointer transition-colors" />
+          <CartIcon />
           <Menu className="md:hidden w-6 h-6 text-white hover:text-fuchsia-300 cursor-pointer transition-colors" />
         </div>
       </nav>
@@ -74,7 +76,6 @@ export default function Home() {
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <h3 className="text-xl font-bold mb-2">{artwork.title}</h3>
                     <p className="text-sm mb-2">by {artwork.artist}</p>
-                    <p className="text-lg font-semibold">${artwork.price}</p>
                   </div>
                 </div>
               </Link>

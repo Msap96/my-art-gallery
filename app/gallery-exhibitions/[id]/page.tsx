@@ -1,17 +1,40 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { exhibitions } from "@/app/data/exhibitions";
+import { useCart } from "@/app/context/CartContext";
+import AddToCartNotification from "@/components/AddToCartNotification";
 
 export default function ArtworkPage({ params }: { params: { id: string } }) {
   const artwork = exhibitions.find((art) => art.id === parseInt(params.id));
+  const { addItem } = useCart();
+  const [showNotification, setShowNotification] = useState(false);
 
   if (!artwork) {
     return <div>Artwork not found</div>;
   }
 
+  const handleAddToCart = () => {
+    addItem({
+      id: artwork.id,
+      title: artwork.title,
+      artist: artwork.artist,
+      price: artwork.price,
+      imageSrc: artwork.imageSrc,
+    });
+    setShowNotification(true);
+  };
+
   return (
     <main className="container mx-auto px-4 py-8">
+      <AddToCartNotification
+        message={`${artwork.title} added to cart!`}
+        isVisible={showNotification}
+        onClose={() => setShowNotification(false)}
+      />
+
       <Link
         href="/gallery-exhibitions"
         className="text-blue-600 hover:text-blue-800 transition-colors mb-6 inline-block"
@@ -51,7 +74,10 @@ export default function ArtworkPage({ params }: { params: { id: string } }) {
           <p className="text-gray-700 mb-6">{artwork.description}</p>
 
           <div className="space-y-4">
-            <button className="w-full bg-black text-white py-3 px-4 rounded hover:bg-gray-800 transition-colors">
+            <button
+              onClick={handleAddToCart}
+              className="w-full bg-black text-white py-3 px-4 rounded hover:bg-gray-800 transition-colors"
+            >
               ADD TO CART
             </button>
             <button className="w-full bg-[#5469d4] text-white py-3 px-4 rounded hover:bg-[#4559c4] transition-colors">
