@@ -51,7 +51,6 @@ export default function Home() {
             Featured Artists
           </Link>
           <Search className="w-6 h-6 text-white hover:text-fuchsia-300 cursor-pointer transition-colors" />
-          <User className="w-6 h-6 text-white hover:text-fuchsia-300 cursor-pointer transition-colors" />
           <CartIcon />
           <Menu className="md:hidden w-6 h-6 text-white hover:text-fuchsia-300 cursor-pointer transition-colors" />
         </div>
