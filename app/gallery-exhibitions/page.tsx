@@ -3,22 +3,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, ChevronDown } from "lucide-react";
+import { Search } from "lucide-react";
 import CartIcon from "@/components/CartIcon";
 import { exhibitions } from "@/app/data/exhibitions";
 
 export default function GalleryExhibitions() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortBy, setSortBy] = useState("newest");
-  const categories = [
-    "All",
-    "Digital",
-    "Paintings",
-    "Sculptures",
-    "Photography",
-    "Mixed Media",
-  ];
+  const categories = ["All", "Digital", "Paintings"];
 
   // Filter exhibitions based on search query and category
   const filteredExhibitions = exhibitions.filter(
@@ -70,18 +62,6 @@ export default function GalleryExhibitions() {
                 {category}
               </button>
             ))}
-          </div>
-          <div className="relative">
-            <select
-              className="appearance-none px-4 py-2 pr-8 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-fuchsia-300"
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-            >
-              <option value="newest">Newest First</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="price-low">Price: Low to High</option>
-            </select>
-            <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white w-4 h-4" />
           </div>
         </div>
       </div>

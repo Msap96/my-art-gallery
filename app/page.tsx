@@ -44,6 +44,12 @@ export default function Home() {
         </h1>
 
         <div className="flex items-center space-x-6">
+          <Link
+            href="/artists"
+            className="text-white hover:text-fuchsia-300 transition-colors"
+          >
+            Featured Artists
+          </Link>
           <Search className="w-6 h-6 text-white hover:text-fuchsia-300 cursor-pointer transition-colors" />
           <User className="w-6 h-6 text-white hover:text-fuchsia-300 cursor-pointer transition-colors" />
           <CartIcon />
