@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { exhibitions } from "@/app/data/exhibitions";
 import { useCart } from "@/components/CartContext";
 import AddToCartNotification from "@/components/AddToCartNotification";
@@ -24,18 +25,22 @@ interface Artwork {
   description: string;
 }
 
-export default function ArtworkPage({ params }: { params: { id: string } }) {
+export default function ArtworkPage() {
+  const params = useParams();
   const [artwork, setArtwork] = useState<Artwork | null>(null);
   const [loading, setLoading] = useState(true);
   const { addItem } = useCart();
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
-    const foundArtwork = exhibitions.find(
-      (art) => art.id === parseInt(params.id)
-    );
-    if (foundArtwork) {
-      setArtwork(foundArtwork);
+    const artworkId = Array.isArray(params.id) ? params.id[0] : params.id;
+    if (artworkId) {
+      const foundArtwork = exhibitions.find(
+        (art) => art.id === parseInt(artworkId)
+      );
+      if (foundArtwork) {
+        setArtwork(foundArtwork);
+      }
     }
     setLoading(false);
   }, [params.id]);
