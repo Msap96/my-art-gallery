@@ -78,7 +78,7 @@ export default function ArtworkPage() {
 
       <Link
         href="/gallery-exhibitions"
-        className="text-blue-600 hover:text-blue-800 transition-colors mb-6 inline-block"
+        className="text-foreground hover:text-fuchsia-300 transition-colors mb-6 inline-block"
       >
         ← Back to Gallery
       </Link>

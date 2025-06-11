@@ -12,7 +12,7 @@ export default function GalleryExhibitions() {
         <h1 className="text-3xl font-bold">Gallery Exhibitions</h1>
         <Link
           href="/"
-          className="text-blue-600 hover:text-blue-800 transition-colors"
+          className="text-foreground hover:text-fuchsia-300 transition-colors"
         >
           ← Back to Home
         </Link>
