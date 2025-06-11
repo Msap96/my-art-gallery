@@ -41,7 +41,7 @@ export default function GalleryExhibitions() {
             </div>
             <div className="p-4">
               <h2 className="text-xl font-semibold">{artwork.title}</h2>
-              <p className="text-gray-600">{artwork.artist}</p>
+              <p className="text-foreground">{artwork.artist}</p>
             </div>
           </Link>
         ))}

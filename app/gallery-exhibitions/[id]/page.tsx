@@ -15,12 +15,15 @@ interface Artwork {
   artist: string;
   imageSrc: string;
   price: string;
+  category: string;
   details: {
     type: string;
     size?: string;
     medium: string;
     features: string;
     edition?: string;
+    platform?: string;
+    link?: string;
   };
   description: string;
 }
@@ -96,34 +99,52 @@ export default function ArtworkPage() {
         {/* Right side - Details */}
         <div className="flex flex-col">
           <h1 className="text-3xl font-bold mb-2">{artwork.title}</h1>
-          <h2 className="text-xl mb-4">Hand Embellished</h2>
-          <p className="text-xl mb-6">{artwork.price}</p>
+          <h2 className="text-xl mb-4">{artwork.details.type}</h2>
+          {artwork.category !== "Digital" && (
+            <p className="text-xl mb-6">{artwork.price}</p>
+          )}
 
           <div className="space-y-4 mb-6">
             <ul className="list-none space-y-2">
               <li>{artwork.details.type}</li>
-              <li>{artwork.details.size}</li>
+              {artwork.details.size && <li>{artwork.details.size}</li>}
               <li>{artwork.details.medium}</li>
               <li>{artwork.details.features}</li>
-              <li>{artwork.details.edition}</li>
+              {artwork.details.edition && <li>{artwork.details.edition}</li>}
+              {artwork.details.platform && (
+                <li>Platform: {artwork.details.platform}</li>
+              )}
             </ul>
           </div>
 
           <p className="text-foreground mb-6">{artwork.description}</p>
 
           <div className="space-y-4">
-            <button
-              onClick={handleAddToCart}
-              className="w-full bg-black text-white py-3 px-4 rounded hover:bg-gray-800 transition-colors"
-            >
-              ADD TO CART
-            </button>
-            <button className="w-full bg-[#5469d4] text-white py-3 px-4 rounded hover:bg-[#4559c4] transition-colors">
-              Buy with Shop Pay
-            </button>
-            <button className="w-full text-gray-600 py-3 px-4 border rounded hover:bg-gray-50 transition-colors">
-              More payment options
-            </button>
+            {artwork.category === "Digital" ? (
+              <Link
+                href={artwork.details.link || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full block text-center bg-blue-600 text-white py-3 px-4 rounded hover:bg-blue-700 transition-colors"
+              >
+                View on OpenSea
+              </Link>
+            ) : (
+              <>
+                <button
+                  onClick={handleAddToCart}
+                  className="w-full bg-black text-white py-3 px-4 rounded hover:bg-gray-800 transition-colors"
+                >
+                  ADD TO CART
+                </button>
+                <button className="w-full bg-[#5469d4] text-white py-3 px-4 rounded hover:bg-[#4559c4] transition-colors">
+                  Buy with Shop Pay
+                </button>
+                <button className="w-full text-gray-600 py-3 px-4 border rounded hover:bg-gray-50 transition-colors">
+                  More payment options
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>

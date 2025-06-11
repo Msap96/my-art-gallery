@@ -173,7 +173,7 @@ export const exhibitions = [
       id: 11,
       title: "Digital Collection",
       artist: "ArtofSapienza",
-      imageSrc: "/images/DalleGalleryImage.webp",
+      imageSrc: "https://i2.seadn.io/ethereum/0x8f17a839b6cd38e9888be3cc901a6726e84d6462/99eecefec93e2024265c385a700f3d/a499eecefec93e2024265c385a700f3d.jpeg?w=350",
       price: "View on OpenSea",
       category: "Digital",
       details: {
