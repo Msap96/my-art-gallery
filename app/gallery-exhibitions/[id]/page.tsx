@@ -3,7 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { exhibitions } from "@/app/data/exhibitions";
 
-export default function ArtworkPage({ params }: { params: { id: string } }) {
+export default async function ArtworkPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const artwork = exhibitions.find((art) => art.id === parseInt(params.id));
 
   if (!artwork) {

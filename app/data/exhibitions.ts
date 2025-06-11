@@ -3,7 +3,7 @@ export const exhibitions = [
       id: 1,
       title: "The Light Enforcer",
       artist: "Leans",
-      imageSrc: "/images/IMG_3656.jpeg",
+      imageSrc: "/Art-IMGs/IMG_3656.webp",
       price: "$150.00",
       details: {
         type: "Hand embellished print",
@@ -19,7 +19,7 @@ export const exhibitions = [
       id: 2,
       title: "Unseen Limousine",
       artist: "Michael Reeder",
-      imageSrc: "/images/IMG_3942.jpeg",
+      imageSrc: "/Art-IMGs/IMG_3942.webp",
       price: "$200.00",
       details: {
         type: "Giclee print",
@@ -35,7 +35,7 @@ export const exhibitions = [
       id: 3,
       title: "Earth Bender",
       artist: "Damon Soule, Oliver Vernon and Mars-1",
-      imageSrc: "/images/IMG_2240.jpeg",
+      imageSrc: "/Art-IMGs/IMG_2240.webp",
       price: "$180.00",
       details: {
         type: "Hand embellished print",
@@ -51,7 +51,7 @@ export const exhibitions = [
       id: 4,
       title: "Space Jame",
       artist: "PoorTeffy",
-      imageSrc: "/images/IMG_2537.jpeg",
+      imageSrc: "/Art-IMGs/IMG_2537.webp",
       price: "$250.00",
       details: {
         type: "Giclee print",
@@ -67,7 +67,7 @@ export const exhibitions = [
       id: 5,
       title: "Access Granted_Vlll",
       artist: "Bond Truluv",
-      imageSrc: "/images/IMG_2581.jpeg",
+      imageSrc: "/Art-IMGs/IMG_2581.webp",
       price: "$300.00",
       details: {
         type: "Hand embellished print",
@@ -83,7 +83,7 @@ export const exhibitions = [
       id: 6,
       title: "God's of the Multiverse",
       artist: "Dice51",
-      imageSrc: "/images/IMG_4355.jpeg",
+      imageSrc: "/Art-IMGs/IMG_4355.webp",
       price: "$220.00",
       details: {
         type: "Giclee print",
@@ -99,7 +99,7 @@ export const exhibitions = [
       id: 7,
       title: "Inward Perception of Outward Illusions",
       artist: "Micah Ofstedahl",
-      imageSrc: "/images/IMG_6067.JPG",
+      imageSrc: "/Art-IMGs/IMG_6067.webp",
       price: "$280.00",
       details: {
         type: "Hand embellished print",
@@ -115,7 +115,7 @@ export const exhibitions = [
       id: 8,
       title: "One Iota",
       artist: "Micah Ofstedahl",
-      imageSrc: "/images/IMG_6068.JPG",
+      imageSrc: "/Art-IMGs/IMG_6068.webp",
       price: "$260.00",
       details: {
         type: "Giclee print",
@@ -131,7 +131,7 @@ export const exhibitions = [
       id: 9,
       title: "Doomsday",
       artist: "Micahel Reeder",
-      imageSrc: "/images/IMG_6146.WEBP",
+      imageSrc: "/Art-IMGs/IMG_6146.webp",
       price: "$350.00",
       details: {
         type: "Hand embellished print",
@@ -147,7 +147,7 @@ export const exhibitions = [
       id: 10,
       title: "Cloud Diver",
       artist: "Micahel Reeder",
-      imageSrc: "/images/IMG_6150.WEBP",
+      imageSrc: "/Art-IMGs/IMG_6150.webp",
       price: "$290.00",
       details: {
         type: "Giclee print",
