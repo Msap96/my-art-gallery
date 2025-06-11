@@ -109,7 +109,7 @@ export default function ArtworkPage() {
             </ul>
           </div>
 
-          <p className="text-gray-700 mb-6">{artwork.description}</p>
+          <p className="text-foreground mb-6">{artwork.description}</p>
 
           <div className="space-y-4">
             <button
