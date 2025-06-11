@@ -1,21 +1,73 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { exhibitions } from "@/app/data/exhibitions";
+import { useCart } from "@/components/CartContext";
+import AddToCartNotification from "@/components/AddToCartNotification";
 
-export default async function ArtworkPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const artwork = exhibitions.find((art) => art.id === parseInt(params.id));
+// Define the type for a single artwork
+interface Artwork {
+  id: number;
+  title: string;
+  artist: string;
+  imageSrc: string;
+  price: string;
+  details: {
+    type: string;
+    size?: string;
+    medium: string;
+    features: string;
+    edition?: string;
+  };
+  description: string;
+}
+
+export default function ArtworkPage({ params }: { params: { id: string } }) {
+  const [artwork, setArtwork] = useState<Artwork | null>(null);
+  const [loading, setLoading] = useState(true);
+  const { addItem } = useCart();
+  const [showNotification, setShowNotification] = useState(false);
+
+  useEffect(() => {
+    const foundArtwork = exhibitions.find(
+      (art) => art.id === parseInt(params.id)
+    );
+    if (foundArtwork) {
+      setArtwork(foundArtwork);
+    }
+    setLoading(false);
+  }, [params.id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   if (!artwork) {
     return <div>Artwork not found</div>;
   }
 
+  const handleAddToCart = () => {
+    // Convert price string (e.g., "$150.00") to a number
+    const priceAsNumber = parseFloat(artwork.price.replace(/[^0-9.-]+/g, ""));
+
+    addItem({
+      id: artwork.id,
+      title: artwork.title,
+      price: priceAsNumber,
+    });
+    setShowNotification(true);
+  };
+
   return (
     <main className="container mx-auto px-4 py-8">
+      <AddToCartNotification
+        message={`${artwork.title} added to cart!`}
+        isVisible={showNotification}
+        onClose={() => setShowNotification(false)}
+      />
+
       <Link
         href="/gallery-exhibitions"
         className="text-blue-600 hover:text-blue-800 transition-colors mb-6 inline-block"
@@ -55,7 +107,10 @@ export default async function ArtworkPage({
           <p className="text-gray-700 mb-6">{artwork.description}</p>
 
           <div className="space-y-4">
-            <button className="w-full bg-black text-white py-3 px-4 rounded hover:bg-gray-800 transition-colors">
+            <button
+              onClick={handleAddToCart}
+              className="w-full bg-black text-white py-3 px-4 rounded hover:bg-gray-800 transition-colors"
+            >
               ADD TO CART
             </button>
             <button className="w-full bg-[#5469d4] text-white py-3 px-4 rounded hover:bg-[#4559c4] transition-colors">

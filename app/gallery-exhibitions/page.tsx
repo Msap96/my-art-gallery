@@ -1,69 +1,9 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-const exhibitions = [
-  {
-    id: 1,
-    title: "The Light Enforcer",
-    artist: "Leans",
-    imageSrc: "/Art-IMGs/IMG_3656.webp",
-  },
-  {
-    id: 2,
-    title: "Unseen Limousine",
-    artist: "Michael Reeder",
-    imageSrc: "/Art-IMGs/IMG_3942.webp",
-  },
-  {
-    id: 3,
-    title: "Earth Bender",
-    artist: "Damon Soule, Oliver Vernon and Mars-1",
-    imageSrc: "/Art-IMGs/IMG_2240.webp",
-  },
-  {
-    id: 4,
-    title: "Space Jame",
-    artist: "PoorTeffy",
-    imageSrc: "/Art-IMGs/IMG_2537.webp",
-  },
-  {
-    id: 5,
-    title: "Access Granted_Vlll",
-    artist: "Bond Truluv",
-    imageSrc: "/Art-IMGs/IMG_2581.webp",
-  },
-  {
-    id: 6,
-    title: "God's of the Multiverse",
-    artist: "Dice51",
-    imageSrc: "/Art-IMGs/IMG_4355.webp",
-  },
-  {
-    id: 7,
-    title: "Inward Perception of Outward Illusions",
-    artist: "Micah Ofstedahl",
-    imageSrc: "/Art-IMGs/IMG_6067.webp",
-  },
-  {
-    id: 8,
-    title: "One Iota",
-    artist: "Micah Ofstedahl",
-    imageSrc: "/Art-IMGs/IMG_6068.webp",
-  },
-  {
-    id: 9,
-    title: "Doomsday",
-    artist: "Micahel Reeder",
-    imageSrc: "/Art-IMGs/IMG_6146.webp",
-  },
-  {
-    id: 10,
-    title: "Cloud Diver",
-    artist: "Micahel Reeder",
-    imageSrc: "/Art-IMGs/IMG_6150.webp",
-  },
-];
+import { exhibitions as dummyExhibitions } from "@/app/data/exhibitions";
 
 export default function GalleryExhibitions() {
   return (
@@ -78,7 +18,7 @@ export default function GalleryExhibitions() {
         </Link>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {exhibitions.map((artwork) => (
+        {dummyExhibitions.map((artwork) => (
           <Link
             href={`/gallery-exhibitions/${artwork.id}`}
             key={artwork.id}
