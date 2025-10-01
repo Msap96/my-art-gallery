@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { StagewiseToolbar } from "./components/StagewiseToolbar";
 import { CartProvider } from "@/components/CartContext";
 
 const geistSans = localFont({
@@ -30,10 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
-        <CartProvider>
-          <StagewiseToolbar />
-          {children}
-        </CartProvider>
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );
